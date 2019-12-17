@@ -1,0 +1,55 @@
+﻿@using Sitecore.ExperienceForms.Mvc.Extensions
+@using Sitecore.ExperienceForms.Mvc.Html
+@using System.Linq
+@using Px.SitecoreForms.Demo
+@model Px.SitecoreForms.Demo.ComplexObject
+@{
+    var numberOFFields = Model.numberOfFields;
+    var placeholders = Model.fieldPlaceholders;
+    int txtFields = 0;
+    var placeholdersFlag = false;
+
+
+    if (int.TryParse(numberOFFields, out txtFields))
+    {
+        txtFields = int.Parse(numberOFFields);
+    }
+
+    var cssClass = Model.CssClass;
+
+    var placeholdersList = placeholders.Split(';');
+    if (placeholdersList.Length == txtFields)
+    {
+        placeholdersFlag = true;
+    }
+
+
+}
+
+@{ if (txtFields > 0)
+    {
+        for (var i = 0; i < txtFields; i++)
+        {
+
+            <input id="@Html.IdFor(m => Model.Value)" name="@Html.NameFor(m => Model.Value)" class="@Model.CssClass" type="text" value="@Model.Value" 
+                   placeholder="@placeholdersList[i]" 
+                   data-sc-tracking="@Model.IsTrackingEnabled" data-sc-field-name="@Model.Name" data-sc-field-key="@Model.ConditionSettings.FieldKey"
+                   @Html.GenerateUnobtrusiveValidationAttributes(m => m.Value) />
+            
+
+            @*@Html.ValidationMessageFor(m => Model.Value)*@
+
+        }
+    }
+    else
+    {
+        if (Sitecore.Context.Items.Contains("FormEditor"))
+        {
+            if (Sitecore.Context.Items["FormEditor"].ToString() == "True")
+            {
+                <span>Number of Text fields is 0 -> this section will appear only in form editor</span>
+            }
+        }
+
+    }
+}

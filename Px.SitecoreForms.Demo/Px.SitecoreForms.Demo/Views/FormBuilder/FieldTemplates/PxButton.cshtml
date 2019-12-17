@@ -1,0 +1,21 @@
+﻿@using Sitecore.ExperienceForms.Mvc.Constants
+@model Px.SitecoreForms.Demo.CustomButton
+
+@{
+    var cssClass = Model.CssClass;
+    if (Model.NavigationStep < 0)
+    {
+        var classes = Model.CssClass.Split(' ');
+        if (!classes.Contains("cancel", StringComparer.OrdinalIgnoreCase))
+        {
+            if (!string.IsNullOrEmpty(Model.CssClass))
+            {
+                cssClass += " ";
+            }
+
+            cssClass += "cancel";
+        }
+    }
+}
+
+<input type="button" value="@Html.DisplayTextFor(t => Model.Title)" class="@cssClass" name="@Html.Name(Model.ItemId)" data-sc-field-key="@Model.ConditionSettings.FieldKey" data-delete-container="@Model.containerClasstoDelete" data-duplicate-container="@Model.classSelectorToAdd" data-container-show="@Model.showContainer" data-container-hide="@Model.hideContainer"/>

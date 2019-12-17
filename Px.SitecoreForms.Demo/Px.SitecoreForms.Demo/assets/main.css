@@ -1,0 +1,336 @@
+.form-container
+{
+	display:block;
+	border: black solid;
+    width: 250px;
+	position: absolute;
+	
+ 
+}
+
+.btn
+{
+	color: #fefefe;
+   
+    border-color: transparent;	
+}
+
+.hide
+{
+	display:none;
+}
+.form-first-step ,.form-second-step ,.form-third-step
+{
+	margin-left: 247px;
+	width:64%;
+	
+}
+.form-navigation {
+	
+    display: flex;
+  
+    /* background: blue; */
+    padding: 10px;
+    /* flex-flow: row wrap; */
+    align-items: center;
+    justify-content: space-between;
+	text-align: center;
+	color:white;
+}
+
+.form-navigation p
+{   border: 3px solid #b2aea1f0;
+    padding: 10px;
+    width: 50%;
+    border-radius: 5px;
+    background-color: #ccc7c8f0;
+	    text-align: center;
+	 
+}
+
+.form-navigation p.active
+{
+	background-color:#e1b47ff0;
+	 
+}
+
+.btn-center
+{
+	margin-left: 425px;margin-top:4px;
+}
+
+.section-supported-docs input
+{
+	display:block;
+	padding:15px;
+}
+
+
+.container-shipping-city input,select
+{
+	display:block;
+	    width: 50%;
+		margin:5px;
+}
+
+.container-shipping-city
+{
+	width:50%;
+}
+
+.container-shipping-poe textarea,select
+{
+	display:block;
+	width:70%;
+}
+
+.item-list-header
+{
+	display: flex;
+    width: 73%;
+    /* background: blue; */
+    padding: 10px;
+    /* flex-flow: row wrap; */
+    align-items: center;
+    justify-content: space-between;
+    margin-left: 44px;
+}
+
+p {
+  margin: 0px;
+  }
+
+.form-first-step select
+{
+	
+	    border-radius: 5px;
+    width: 40%;
+}
+  
+.form-section-container,.form-shipping-section,.form-add-info-section
+{
+    border: 1px solid #60d79ef0;
+    padding: 29px;
+    margin-bottom: 2px;
+	background: white;
+}
+
+.form-shipping-section
+{   
+    display: flex;
+   
+	
+}
+
+.btn-delete
+{
+	 background-color: #ff1500;
+}
+
+.btn-add
+{
+	 background-color: #00bbff;
+}
+.btn-next,.btn-previous
+{
+	 background-color: #fe8440;
+}
+
+.btn-submit
+{
+	background-color:#1eb659
+}
+  
+.form-section-title
+{
+	display:block;
+	margin: auto;
+        margin-bottom: 10px;
+    /* border: 3px solid green; */
+    padding: 10px;
+	  border-bottom: 1px solid #60d79ef0;
+    width: 98%;
+    text-align: center;
+}
+
+.bgFooter
+{
+	background:black;
+	    margin-top: 10px;
+}
+
+.nr_divider 
+{
+	display: flex;
+   
+    /* background: blue; */
+    padding: 10px;
+    /* flex-flow: row wrap; */
+    align-items: center;
+    justify-content: space-between;
+	
+}
+#tools
+{
+	display:flex !important;
+}
+
+.item-information
+{
+	margin-top:10px;
+}
+
+.item-information input:nth-of-type(6n) {
+  
+}
+
+.section-supported-docs{
+	display: flex;    
+    padding: 10px;   
+    align-items: center;
+    justify-content: space-between;
+}
+.section-supported-docs input[type="file"] {
+    border: solid #f1c4c4;
+    width: 100%;
+    height: 50px;
+    margin: 40px;
+}
+
+.section-supported-docs .field-validation-error
+{
+	display:none;
+	
+}
+
+.form-shipping-section .field-validation-error
+{
+	display:none;
+	
+}
+
+.form-section-container .field-validation-error
+{
+	display:none;
+	
+}
+
+.alert-danger,.field-validation-error
+{
+	color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+.container-thank-you
+{
+	text-align: center;
+    font-size: 25px;
+    margin-bottom: 100px;
+    margin-top: 100px;
+}
+
+#MasterPageBodyTagH{
+	border-bottom: solid black;
+}
+
+#headerContainer {
+    min-height: unset!important;
+    height: 50px !important;
+}
+ /* ///////////////////////////////////////////////////////////////////////////////////////////////// */
+body {
+	background: transparent url(https://ssosrv.tra.gov.ae/accountservices/images/bg-pattern.png) repeat scroll 0 0
+}
+
+.form-submit-button{
+    margin-left: 142px;
+    width: 100px;
+    height: 50px;
+    font-size: 122;
+    font-size: 20px;
+    border-radius: 31px;
+    margin-bottom: 30px;
+    background-color: #fe8440;}
+
+.form_component-title {
+    font-size: 30px;
+    font-weight: bold;
+    font-family: sans-serif;
+    padding-bottom: 10px;
+    padding-top: 100px;
+    text-align: center;
+}
+
+.users-information.users-entry {
+	display: flex!important;
+	height: 460px!important;
+    position: relative!important;      
+    /* background: blue; */
+    padding: 10px 90px !important;
+    justify-content: space-around;
+   
+    
+}
+
+.users-information.users-entry label {
+	display: block!important;
+	font-weight: 700!important;
+	margin-bottom: 5px!important;
+}
+
+.users-information.users-entry [type=date],
+.users-information.users-entry [type=email],
+.users-information.users-entry [type=tel],
+.users-information.users-entry input[type=text],
+.users-information.users-entry select {
+	width: 100%!important;
+	padding: 6px 12px!important;
+	box-sizing: border-box!important;
+	border: 1px solid #ccc!important;
+	border-radius: 4px!important;
+	transition: .5s!important;
+	outline: none!important;
+	margin-bottom: 7px!important;
+}
+
+.users-information.users-entry [type=date]:focus,
+.users-information.users-entry [type=email]:focus,
+.users-information.users-entry [type=tel]:focus,
+.users-information.users-entry input[type=text]:focus,
+.users-information.users-entry select:focus {
+	border: 1px solid #555!important;
+}
+
+.users-information.users-entry .form_container-national-info,
+.users-information.users-entry .form_container-personal-information,
+.users-information.users-entry .form_container-preferences {
+	padding: 0 20px 30px 0!important;
+	width: 25%!important;
+}
+
+.users-information.users-entry .form_container-national-info h1,
+.users-information.users-entry .form_container-personal-information h1,
+.users-information.users-entry .form_container-preferences h1 {
+	font-size: 145%!important;
+	font-weight: 700!important;
+}
+
+
+
+.users-information.users-entry .form-submit-button {
+	background: #f8901d!important;
+	border: none!important;
+	border-radius: 4px!important;
+	color: #fff!important;
+	padding: 5px 8px!important;
+	text-align: center!important;
+	text-decoration: none!important;
+	display: inline-block!important;
+	font-size: 14px!important;
+	margin: 4px 2px!important;
+	cursor: pointer!important;
+	position: absolute!important;
+	bottom: 0!important;
+	left: 0!important;
+}

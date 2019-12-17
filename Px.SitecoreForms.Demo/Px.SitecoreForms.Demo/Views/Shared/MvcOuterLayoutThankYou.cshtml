@@ -1,0 +1,25 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.ExperienceForms.Mvc.Html
+@using Sitecore.Mvc.Analytics.Extensions
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
+    @Html.Sitecore().VisitorIdentification()
+    @Html.RenderFormStyles()
+    @Html.RenderFormScripts()
+	<link rel="stylesheet" href="/assets/main.css" >
+	<script type="text/javascript" src="/assets/main.js" ></script>
+	<link type="text/css" rel="stylesheet" href="https://chat.tra.gov.ae:443/js/webChat/css/bwc.style.v2.min.css">
+	<link href="https://ssosrv.tra.gov.ae/accountservices/css/style.css?v15" rel="stylesheet" type="text/css">
+</head>
+
+<body style="padding-top: 70px;">
+    @RenderBody()
+	
+
+</body>
+</html>

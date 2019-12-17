@@ -1,0 +1,264 @@
+﻿@using Sitecore.Mvc
+@using Sitecore.ExperienceForms.Mvc.Html
+@using Sitecore.Mvc.Analytics.Extensions
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>@Html.Sitecore().Field("title", new { DisableWebEdit = true })</title>
+    @Html.Sitecore().VisitorIdentification()
+    @Html.RenderFormStyles()
+    @Html.RenderFormScripts()
+	<link rel="stylesheet" href="/assets/main.css" >
+	<script type="text/javascript" src="/assets/main.js" ></script>
+	<link type="text/css" rel="stylesheet" href="https://chat.tra.gov.ae:443/js/webChat/css/bwc.style.v2.min.css">
+	<link href="https://ssosrv.tra.gov.ae/accountservices/css/style.css?v15" rel="stylesheet" type="text/css">
+</head>
+<div id="MasterPageBodyTagH">
+ 	<div class="payLayout">
+            <div id="headerContainer">
+  				<div id="traLogo">
+                    <a title="Telecommunications Regulatory Authority(TRA)" href="http://www.tra.gov.ae/en/home.aspx" style="color: rgb(255, 255, 255);">
+                    	<img src="https://ssosrv.tra.gov.ae/accountservices/images/logo.png" alt="Telecommunications Regulatory Authority logo" style="width: 197px;height: 92px;">
+                    </a>
+                </div>
+                <div id="uaeLogo" class="image">
+                    <a title="Government.ae" style="float: right; color: rgb(255, 255, 255);" href="http://www.government.ae/en">
+                    	<img src="https://ssosrv.tra.gov.ae/accountservices/images/falcon.png" alt="UAE logo">
+                    </a>
+                    <div class="overlay" style="margin-top:100px;height:auto;color: white; background-color: black; z-index: 3; margin-left: -240px;border-radius: 5px;">
+                    This link will direct you to an external website that may have different content and privacy policies from tra.gov.ae
+                    </div>
+                </div>
+             </div>
+	<div id="tools">
+		<a id="languageOptions" href="#" class="language-options" onclick="changeLanguage(&quot;ar&quot;)" style="color: rgb(93, 93, 93);">العربية</a>
+    	<div class="side1" id="zoom">
+    		<a title="Home" href="https://eservices.tra.gov.ae/" id="home" class="homeicon" style="color: rgb(255, 255, 255);"></a>
+    		<a title="Settings" class="access" id="accessibility" href="#" onclick="toggleTraMenu()" style="z-index: 2; color: rgb(255, 255, 255);"></a>
+		
+			<div id="tramenu"></div>
+		</div>
+	</div>
+	<div id="mobileblock" class="mobilenavmenu">
+    	<div class="navbar-header" style="z-index:2;float:left;width:98%">
+    		<a class="navbar-toggle_custom" href="#" id="mobmenu" onclick="toggleMobileMenu()" style="color: rgb(255, 255, 255);">
+				
+					<img src="https://ssosrv.tra.gov.ae/accountservices/images/menu.png" style="width:60px;">
+								
+			</a> 
+	    </div> 
+	</div>
+	<div id="mobileNavMenuCont" style="height: 754px;">
+		<div style="margin-bottom: 10px;"><a class="navClose" href="#" onclick="hideMobileMenu()" style="color: rgb(255, 255, 255);"></a></div>
+        <div class="mobContents">
+   			<div class="profPic">
+   				
+					<img class="userimage" style="width: 64px;margin-top:4px;margin-left: 4px;height:68px" src="https://ssosrv.tra.gov.ae/accountservices/images/userImg.png">
+			</div>
+         	<span class="welcomeuser">Welcome <br>&nbsp;&nbsp;&nbsp;</span>
+         </div>
+         <ul class="nav">               
+    	       <li><a class="homeiconmob" href="https://eservices.tra.gov.ae/" style="color: rgb(255, 255, 255);">Home</a></li>
+           
+                <li><a class="accessmob" onclick="hideAndShowMobileMenu()" href="#" style="z-index: 2; color: rgb(255, 255, 255);">Settings</a></li>                
+				<li>
+				
+           		<a href="#" class="language-options" onclick="changeLanguage(&quot;ar&quot;)" style="color: rgb(93, 93, 93);">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;العربية</a>
+				</li>
+            </ul>
+    	 </div>
+   	  </div>
+  	 <div id="tramenuMobile" style="display:none">
+	</div>
+	<div id="genericmenu" class="genericmenu" style="display:none">
+		<div class="settings-popover show">
+				<a href="#" class="close icon icon-24 icon-close" onclick="hideTraMenu()" style="color: rgb(93, 93, 93);"></a>
+				<!-- Close -->
+    			<div class="font-adjustments">
+    				<div class="fontSelectors">
+						<input type="range" min="70" max="130" step="15" id="fontTracker" value="100" onchange="changeFontSize()">	
+						<div class="slider ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
+               				<ul class="fontTrackerUl" style="padding-left: 0px;">
+                       	 		<li class="slider-step"></li>
+                        	    <li class="slider-step"></li>
+                            	<li class="slider-step"></li>
+       			      		</ul>
+						</div>  
+					</div>  
+					<span class="font-decrease-label"><a href="#" style="color: rgb(93, 93, 93);" onclick="zoomOut()">Font Decrease</a></span>
+      				<span class="font-increase-label"><a href="#" style="color: rgb(93, 93, 93);" onclick="zoomIn()">Font Increase</a></span>
+				</div>
+				<div class="vertical-space">
+					<a href="#" onclick="toggleContrast()" data-theme="hc1" class="disablity" style="color: rgb(93, 93, 93);">Accessibility</a>
+					<div class="themes-section">
+						<ul class="themes">
+							<li><a class="orange-color" href="#" onclick="setCookie(&quot;uitheme&quot;,&quot;#f8901d&quot;, true)" style="color: rgb(93, 93, 93);">orangeorange</a></li>
+							<li><a class="green-color" data-theme="green-theme" href="#" onclick="setCookie(&quot;uitheme&quot;,&quot;#018751&quot;, true)" style="color: rgb(93, 93, 93);">green</a></li>
+							<li><a class="blue-color" data-theme="blue-theme" href="#" onclick="setCookie(&quot;uitheme&quot;,&quot;#0055a5&quot;, true)" style="color: rgb(93, 93, 93);">blue</a></li>
+							<li><a class="sky-color" data-theme="sky-theme" href="#" onclick="setCookie(&quot;uitheme&quot;,&quot;#5EB6E4&quot;, true)" style="color: rgb(93, 93, 93);">sky</a></li>
+							<li><a class="purple-color" data-theme="purple-theme" href="#" onclick="setCookie(&quot;uitheme&quot;,&quot;#622567&quot;, true)" style="color: rgb(93, 93, 93);">purple</a></li>
+						</ul> 
+						Preferred Colors
+					</div>
+				</div>
+				
+				<div class="translate">
+					<button class="btn smallbtn" onclick="setCookie(&quot;fontface&quot;,&quot;DroidArabicKufi&quot;, true)" style="background: rgb(248, 144, 29); color: rgb(255, 255, 255);">Droid</button>
+					<button class="btn smallbtn" onclick="setCookie(&quot;fontface&quot;,&quot;DubaiFont&quot;, true)" style="background: rgb(248, 144, 29); color: rgb(255, 255, 255);">Dubai Font</button>
+					<button class="btn smallbtn" onclick="setCookie(&quot;fontface&quot;,&quot;Amiri&quot;, true)" style="background: rgb(248, 144, 29); color: rgb(255, 255, 255);">Amiri</button>
+					<button class="btn smallbtn" onclick="setCookie(&quot;fontface&quot;,&quot;BalooBhaijaan&quot;, true)" style="background: rgb(248, 144, 29); color: rgb(255, 255, 255);">Baloo Bhaijaan</button>
+					<br>
+					<div style="padding-top: 10px;">Font</div>
+				</div>
+				
+				<div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve" style="max-width: 315px">
+					<a href="https://app-as.readspeaker.com/cgi-bin/rsent?customerid=7268&amp;lang=en_uk&amp;readid=read&amp;url=https://ssosrv.tra.gov.aehttps://ssosrv.tra.gov.ae/accountservices/identity/register.jsp" id="readSperkerUrl" rel="nofollow" class="listen-to-page rsbtn_play" accesskey="L" title="Listen to this page" data-rsevent-id="rs_110607" target="_blank" role="button" style="color: rgb(93, 93, 93);">
+						Listen to Page
+					</a>
+				</div>
+				<div class="translate">
+					<div class="translateTextEn">Translate to</div>
+		 			<div id="google_translate_element"><div class="skiptranslate goog-te-gadget" dir="ltr" style=""><div id=":0.targetLanguage" class="goog-te-gadget-simple" style="white-space: nowrap;"><img src="https://www.google.com/images/cleardot.gif" class="goog-te-gadget-icon" alt="" style="background-image: url(&quot;https://translate.googleapis.com/translate_static/img/te_ctrl3.gif&quot;); background-position: -65px 0px;"><span style="vertical-align: middle;"><a aria-haspopup="true" class="goog-te-menu-value" href="javascript:void(0)"><span>Select Language</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span style="border-left: 1px solid rgb(187, 187, 187);">​</span><img src="https://www.google.com/images/cleardot.gif" alt="" width="1" height="1"><span aria-hidden="true" style="color: rgb(118, 118, 118);">▼</span></a></span></div></div></div>
+				</div>
+    			<button type="button" class="reset" onclick="resetSettings()">Reset Changes</button>
+		</div>		
+	</div>
+</div>
+<body style="padding-top: 70px;">
+    @RenderBody()
+	
+<div id="MasterPageBodyTag">
+	<div class="bgFooter col-lg-12">
+		<div class="payLayout">
+			<div class="col-lg-12 col-md-12 col-sm-12 nopadding nr_divider">
+				<div id="newmenu" class="divider outer-align">
+					<div class="inner-align">
+						<div class="footer-menu back-to-top-div">
+							<a href="#top" class="back-to-top icon icon-back-to-top" style="color: rgb(255, 255, 255);"><span class="bt-text forcedFont">Back to top</span></a>
+						</div>
+					</div>
+				</div>
+				<div id="newmenu" class="outer-align">
+					<div class="inner-align">
+						<ul class="footer-menu list-unstyled cf">
+							<li><a href="tel:80012" class="i-phone-round icon icon-call-2" style="color: rgb(255, 255, 255);"><span class="forcedFont">Toll Free<br> 800 12</span></a></li>
+							<li><a href="https://www.tra.gov.ae/en/customer-service-charter.aspx" target="_blank" class="i-charter icon icon-charter2" style="color: rgb(255, 255, 255);"><span class="forcedFont">Customer Happiness Charter </span></a></li>
+							<li><a href="https://www.tra.gov.ae/en/consultation.aspx" class="i-consultation icon icon-consultation2" style="color: rgb(255, 255, 255);"><span class="forcedFont">Consultation</span> </a></li>
+						</ul>
+					</div>
+				</div>
+				<div id="newmenu" class="outer-align">
+					<div class="inner-align">
+						<ul class="footer-menu list-unstyled cf">		
+							<li><a href="https://www.tra.gov.ae/en/contact-us.aspx" class="i-phone icon icon-call" style="color: rgb(255, 255, 255);"><span class="forcedFont">Contact <br>us</span> </a></li>
+							<li><a href="https://www.tra.gov.ae" class="i-location icon icon-location2" style="color: rgb(255, 255, 255);"><span class="forcedFont">Locate <br>us</span> </a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="outer-align divider" style="padding-top: 15px;">
+					<div class="wt-inner inner-align">
+						<div class="worktimings">
+							<h5 style="font-size: 80%;">Work Timings</h5>
+							<div class="work-time-divider"></div>
+							<h4>Sunday - Thursday<br>7:30am - 2:30pm</h4>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="col-lg-12 col-md-12 col-sm-12 general-padding nr_divider">
+				<div class="footer-logo outer-align divider">
+					<div class="inner-align">
+						<img class="tra-img" alt="Telecommunications Regulatory Authority (TRA)" src="https://ssosrv.tra.gov.ae/accountservices/images/logo-white.png">
+						<h5 style="font-size: 80%;">
+							Telecommunications Regulatory Authority (TRA) <br>
+							© Copyright  2014 - 2018
+						</h5>
+					</div>
+				</div>
+
+				<div class="side1custom side2 outer-align">
+					<div class="inner-align">
+						<div id="footerText" class="side1">
+							<div id="p1">
+								Website is last updated:
+								2019-08-20 13:12:55
+							</div>
+							<div id="p2">Site is best viewed in a 1366x768 screen resolution. Browser Compatibility: IE 10+, Firefox 44+, Google  Chrome 48+, Safari 5+, Opera 35+</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-12 col-md-12 col-sm-12 general-padding nr_divider">
+				<div class="visitors-count outer-align divider">
+					<div class="inner-align">
+						Visitors Counter: <span style="font-weight:bold">91796</span>
+					</div>
+				</div>
+				<div id="footerLink" class="site-links-1 outer-align divider">
+					<div class="inner-align">
+						<ul>
+							<li><a href="https://www.tra.gov.ae/en/help.aspx" style="color: rgb(255, 255, 255);">Help and Accessibility</a></li>
+							<li><a href="https://www.tra.gov.ae/en/glossary.aspx" style="color: rgb(255, 255, 255);">Glossary</a></li>
+							<li><a href="https://www.tra.gov.ae/en/useful-link.aspx" style="color: rgb(255, 255, 255);">Useful Links</a></li>
+							<li><a href="https://www.tra.gov.ae/en/faq.aspx" id="faq" class="lst" style="color: rgb(255, 255, 255);">FAQ</a></li>
+							<li><a href="http://www.tra.gov.ae/en/resources.aspx" id="resources" class="lstRes" style="color: rgb(255, 255, 255);">Resources</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div id="socialIconPanel" class="programs-and-channels side2 outer-align divider">
+					<div class="inner-align">
+						<a href="https://www.facebook.com/theuaetra" class="icon icon-facebook" title="Facebook" style="color: rgb(255, 255, 255);"></a> 
+						<a href="https://twitter.com/TheUAETRA" target="_blank" class="icon icon-twitter" title="Twitter" style="color: rgb(255, 255, 255);"></a> 
+						<a href="https://www.youtube.com/user/TheUaetra" class="icon icon-youtube" title="Youtube" style="color: rgb(255, 255, 255);"></a> 
+						<a href="http://instagram.com/theuaetra" class="icon icon-instagram" title="Instagram" style="color: rgb(255, 255, 255);"></a> 
+						<a href="https://tra.gov.ae/handlers/public/tra/rss.aspx" class="icon icon-rss" title="RSS" style="color: rgb(255, 255, 255);"></a> 
+						<a href="http://get.adobe.com/reader/" class="icon icon-reader" title="Adobe Acrobat" style="color: rgb(255, 255, 255);"></a> 
+						<a href="http://get.adobe.com/flashplayer/" class="icon icon-flash" title="Adobe Flash Player" style="color: rgb(255, 255, 255);"></a>
+					</div>
+				</div>
+			</div>
+			
+			<div class="col-lg-12 col-md-12 col-sm-12 general-padding nr_divider">
+				<div class="federal-authority side1 outer-align">
+					<div class="inner-align">
+						<img src="https://ssosrv.tra.gov.ae/accountservices/images/fed-logo.png" alt="Government.ae">
+					</div>
+				</div>
+				
+				<div id="footerLink" class="site-links-2 outer-align">
+					<div class="inner-align">
+						<ul>
+							<li><a href="https://www.tra.gov.ae/en/disclaimer.aspx" style="color: rgb(255, 255, 255);">Disclaimer</a></li>
+							<li><a href="https://www.tra.gov.ae/en/privacy-policy.aspx" style="color: rgb(255, 255, 255);">Privacy Policy</a></li>
+							<li><a href="https://www.tra.gov.ae/en/archive.aspx" style="color: rgb(255, 255, 255);">Archive</a></li>
+							<li><a href="https://www.tra.gov.ae/en/terms-and-conditions.aspx" style="color: rgb(255, 255, 255);">Terms &amp; Conditions</a></li>
+							<li><a href="https://www.tra.gov.ae/en/copyright.aspx" style="color: rgb(255, 255, 255);">Copyright</a></li>
+						</ul>
+					</div>
+				</div>
+				
+				<div class="side2 outer-align">
+					<div class="mygov outer-align">
+						<div class="mygov-inner inner-align">
+							<a href="https://www.mygov.ae/mygov/index.aspx" style="color: rgb(255, 255, 255);"><img class="mygov-img" src="https://ssosrv.tra.gov.ae/accountservices/images/my-gov-logo.png" alt="MyGov"></a>
+						</div>
+					</div>
+					<div class="logo-divider"></div>
+					<div class="government outer-align">
+						<div class="inner-align">
+							<a href="http://www.government.ae/" style="color: rgb(255, 255, 255);"><img class="government-img" src="https://ssosrv.tra.gov.ae/accountservices/images/ae-logo.png" alt="Government.ae"></a>
+						</div>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+	</div>
+</div>
+</body>
+</html>
