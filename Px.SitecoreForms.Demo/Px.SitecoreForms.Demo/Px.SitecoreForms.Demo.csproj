@@ -580,6 +580,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RazorGeneratorMvcStart.cs" />
+    <Compile Include="Areas\CustomForm\CustomFormAreaRegistration.cs" />
     <Compile Include="ComplexObject.cs" />
     <Compile Include="Controller\CustomFormController.cs" />
     <Compile Include="CustomButton.cs" />
@@ -592,6 +593,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Config\Include\Features\Px.SitecoreFroms\Px.SitecoreForms.Demo.config" />
+    <Content Include="Areas\CustomForm\Views\web.config" />
     <None Include="packages.config" />
     <Content Include="Views\FormBuilder\FieldTemplates\ComplexObject.cshtml" />
     <Content Include="Views\FormBuilder\FieldTemplates\PxButton.cshtml" />
@@ -607,7 +609,11 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Areas\CustomForm\Controllers\" />
+    <Folder Include="Areas\CustomForm\Models\" />
+    <Folder Include="Areas\CustomForm\Views\Shared\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
